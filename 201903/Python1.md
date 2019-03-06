@@ -194,3 +194,81 @@ AOP aspect oriential programming
     bar(1, 2, 3)
 
 ##### magic method
+
+    class LogAll(object):
+        def __init__(self):
+            self.a = 1
+            self.b = 2
+            self.c = 3
+        def __getattribute__(self, item):
+            print(item)
+
+    l = LogAll()
+    print(l.a)
+    l.a = 1
+    l.b
+    l.c
+
+    class Any(object):
+        def __getattr__(self, item):
+            print(item)
+
+        def __setattr__(self, key, value):
+            print("set", key, value)
+
+    a = Any()
+    a.a
+    a.a = 1
+
+    class Any(object):
+        def __getattr__(self, item):
+            def _(*args, **kwargs):
+                print("function name", item)
+                print("args", args)
+                print("kwargs", kwargs)
+
+            setattr(self, item, _)
+
+            return _
+
+
+    a = Any()
+    a.fuck(1, 2, 3)
+    a.shit(1, 2, [1, 2, 3], c=[])
+
+
+
+##### mixin
+C, C++, Java
+
+    b -> a
+    a -> b
+
+    a -> a interface
+    b -> b interface
+
+    b->a interface
+    a->b interface
+
+Python
+
+    Final(A,B,C)
+
+<br>
+
+    class A(object):
+        def foo(self):
+            print("foo")
+        def bar(self):
+            print("bar")
+            self.shit()
+
+    class B(object):
+        def shit(self):
+            print("shit")
+
+    class C(A, B):
+        pass
+
+    c = C()
+    c.bar()
