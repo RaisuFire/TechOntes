@@ -34,3 +34,35 @@ int mult (int x, int y) {} | function mult(x, y) | function mult 2
 
 
 #### Implement
+##### call
+calls the function, informing that nArgs arguments have been push onto the stack
+
+
+    push returnAddress
+    push LCL
+    push ARG
+    push THIS
+    push THAT
+    ARG = SP - 5 - nArgs
+    LCL = SP
+    goto functionName
+    returnAddress
+
+#####  function
+here starts a function that has nVars local variables
+
+    (functionName)
+    repeat nVars times;
+    push 0;
+    ...
+##### return
+
+    endFrame = LCL
+    retAddr = *(endFrame - 5)
+    *ARG = pop()
+    SP = ARG + 1
+    THAT = *(endFrame - 1)
+    THIS = *(endFrame - 2)
+    ARG = *(endFrame - 3)
+    LCL = *(endFrame - 4)
+    goto retAddr
