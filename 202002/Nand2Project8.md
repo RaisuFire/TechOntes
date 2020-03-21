@@ -34,3 +34,12 @@ int mult (int x, int y) {} | function mult(x, y) | function mult 2
 
 
 #### Implement
+
+* Sys.init
+
+
+
+* Many vm to One asm
+
+    1. Sys.init
+    2. for each 
