@@ -22,3 +22,30 @@ compiler
 2.
 * a description for what the pattern look like
 * a description for what the compiled code look like
+
+
+##### N Ary function
+* from f(x, y) -> f(x...)
+    *. f = g(f)
+
+#### Type Of Tools
+
+Debug | Performance | Expressivenes
+---- | --- | ---
+countcalls | memo | n_arf
+trace | |
+disable | |
+
+
+##### Write Grammar
+* Grammar
+* Language
+
+###### descriptionary
+    Exp    => Term[+-] Exp | Term
+    Term   => Factor | [*/] Term | Factor
+    Factor => Funcall | Var | Num |[(] Exp [)]
+    Funcall=> Var [(] Exps [)]
+    Exps   => Exp, Exps | Exp
+    Var    => [a-zA-z]\w*
+    Num    => [-+]?[0-9]+(.[0-9]*)?
