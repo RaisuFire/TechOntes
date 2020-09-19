@@ -11,6 +11,10 @@
 right hand side includes constants only
 * Non-terminal rule  
 all other rules
+* determining if a given input conforms to a grammar  
+in the grammatical structure of the given input
+
+
 
 #### Paser
 * design  
@@ -18,3 +22,25 @@ all other rules
     2. the handing of some rules is embedded is other rules
 
 * LL LL(K) LL(1)
+
+* while statements eg:
+
+        compilerwhilestatement() {
+            eat("while"); code to handle "while"
+            eat("(");
+            compilerExpression();
+            eat(")");
+        }
+
+        eat(string) {
+            if (currentToken <> string) {
+                error;
+            } else {
+                advance;
+            }
+        }
+
+
+#### JackGrammar
+* expressions  
+        expression term (op term)*
